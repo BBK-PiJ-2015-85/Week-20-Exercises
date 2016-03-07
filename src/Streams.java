@@ -4,7 +4,8 @@ import java.util.stream.Stream;
 
 public class Streams {
     public static void main(String[] args) {
-        List<String> words = Arrays.asList("hi", "hello", "tonight", "once", "forever", "midnight", "black", "white", "back", "yellow", "sun", "red");
+        List<String> words = Arrays.asList("hi", "hello", "tonight", "once", "forever", "midnight",
+                                            "black", "white", "back", "yellow", "sun", "red");
 
         System.out.println("*****Question 1*****");
         words.stream().forEach((s) -> System.out.println("  " + s));
@@ -39,7 +40,13 @@ public class Streams {
         System.out.println();
 
         System.out.println("*****Question 5*****");
-        
-
+        String q5 = words.stream().map(String::toUpperCase).filter((s) -> s.length() < 4)
+                                                            .filter((s) -> s.contains("E"))
+                                                            .findFirst().orElse(null);
+        if (q5 != null) {
+            System.out.println(q5);
+        } else {
+            System.out.println("Result was null.");
+        }
     }
 }
