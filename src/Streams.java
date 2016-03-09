@@ -96,5 +96,26 @@ public class Streams {
         System.out.println("*****Question 11*****");
         System.out.println(Streams.orderedNumberList(1, 1, 5));
         System.out.println(Streams.orderedNumberList(10, 10, 10));
+        System.out.println();
+
+        System.out.println("*****Question 12*****");
+        List<Integer> intList = Streams.orderedNumberList(10, 10, 5);
+        int sum = intList.stream().reduce(0, (s, t) -> s + t);
+        System.out.println("Sum of int list = " + sum);
+        System.out.println();
+
+        System.out.println("*****Question 13*****");
+        intList = Streams.orderedNumberList(1, 1, 10000);
+        int sumParallel = intList.parallelStream().reduce(0, (s, t) -> s + t);
+        System.out.println("Sum of int list using parallel = " + sumParallel);
+        System.out.println();
+
+
+        System.out.println("*****Question 14*****");
+        List<Double> doubleList = Arrays.asList(1.435453234, 2.34565234, 2.145432234, 34.23451, 1.234566432, 9.09002983);
+        double product = doubleList.stream().reduce(1.0, (s, t) -> s * t);
+        System.out.println("Product of int list = " + product);
+        double productParallel = doubleList.parallelStream().reduce(1.0, (s, t) -> s * t);
+        System.out.println("Product of int list in parallel = " + productParallel);
     }
 }
